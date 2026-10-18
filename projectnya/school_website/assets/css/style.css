@@ -1,0 +1,325 @@
+/* RedTeam Forge security lab interface */
+
+:root {
+    --rf-ink: #10202b;
+    --rf-muted: #62727d;
+    --rf-paper: #f3f6f4;
+    --rf-panel: #ffffff;
+    --rf-line: #dce7e1;
+    --rf-green: #18a878;
+    --rf-green-dark: #0d6f52;
+    --rf-amber: #e7a83b;
+    --rf-red: #d95656;
+}
+
+body {
+    background: var(--rf-paper);
+    color: var(--rf-ink);
+}
+
+.navbar {
+    border-bottom: 1px solid rgba(148, 197, 176, 0.18);
+    box-shadow: 0 8px 24px rgba(5, 20, 16, 0.16);
+}
+
+.navbar-brand {
+    letter-spacing: 0.04em;
+}
+
+.navbar-brand::after {
+    content: ' // SECURITY OPERATIONS';
+    color: #7ea995;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 500;
+    margin-left: 0.65rem;
+}
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    background-color: #102b2b;
+}
+
+.hero-section::before,
+.lab-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image: linear-gradient(rgba(151, 226, 191, 0.25) 1px, transparent 1px), linear-gradient(90deg, rgba(151, 226, 191, 0.25) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(to bottom, black, transparent 86%);
+}
+
+.hero-section .container,
+.lab-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    color: var(--rf-ink);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.section-title:after {
+    background-color: var(--rf-green);
+}
+
+.card,
+.stats-card {
+    border: 1px solid var(--rf-line);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(22, 50, 40, 0.07);
+}
+
+.card:hover {
+    box-shadow: 0 16px 34px rgba(22, 50, 40, 0.12);
+}
+
+.btn-primary {
+    background-color: var(--rf-green);
+    border-color: var(--rf-green);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--rf-green-dark);
+    border-color: var(--rf-green-dark);
+}
+
+.lab-hero {
+    position: relative;
+    overflow: hidden;
+    background: #102b2b;
+    color: #edf8f1;
+    padding: 92px 0 72px;
+}
+
+.lab-kicker,
+.eyebrow {
+    color: var(--rf-green);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.lab-hero h1 {
+    max-width: 820px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+.lab-hero p {
+    color: #b7cec2;
+    max-width: 720px;
+}
+
+.lab-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(126, 218, 173, 0.35);
+    border-radius: 999px;
+    color: #c9f5db;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.72rem;
+    padding: 0.55rem 0.8rem;
+}
+
+.lab-status::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--rf-green);
+    box-shadow: 0 0 0 4px rgba(24, 168, 120, 0.14);
+}
+
+.lab-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.lab-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--rf-green);
+}
+
+.lab-card h2 {
+    color: var(--rf-ink);
+    letter-spacing: -0.02em;
+}
+
+.lab-card p {
+    color: var(--rf-muted);
+}
+
+.lab-card .badge {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.lab-index {
+    color: var(--rf-green-dark);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+code,
+pre,
+.font-monospace {
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+/* Gallery Image Hover Effect */
+.gallery-img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Button Styles */
+.btn {
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Form Styles */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 71, 161, 0.25);
+}
+
+/* Card Styles */
+.card {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Social Icons */
+.social-links a {
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+/* Branding */
+.navbar-brand .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4f8cff, #0b5fff);
+    color: white;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* Stats cards */
+.stats-card {
+    background: white;
+    border-radius: 14px;
+    padding: 1.25rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Client logos */
+.client-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e8eefc;
+    background: white;
+    border-radius: 999px;
+    padding: 0.8rem 1.2rem;
+    font-weight: 600;
+    color: #2f4b6d;
+}
+
+/* Team and testimonial cards */
+.team-card,
+.testimonial-card {
+    border: 1px solid #edf2ff;
+}
+
+.team-card .team-avatar {
+    width: 64px;
+    height: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #dfeeff, #cfe0ff);
+    color: #0b5fff;
+    font-weight: 700;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 0;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .navbar-brand::after {
+        display: none;
+    }
+
+    .lab-hero {
+        padding: 72px 0 56px;
+    }
+}
